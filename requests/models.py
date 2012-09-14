@@ -440,8 +440,7 @@ class Request(object):
         p = urlsplit(self.full_url)
 
         # Proxies use full URLs.
-        no_proxy = filter(lambda x: x.strip(), self.proxies.get('no', '').split\
-(','))
+        no_proxy = filter(lambda x: x.strip(), self.proxies.get('no', '').split(','))
         proxy = self.proxies.get(p.scheme)
         if proxy and not any(map(p.hostname.endswith, no_proxy)):
             return self.full_url
